@@ -1,0 +1,147 @@
+📑 Agenda for Week8 Day1 - Jira integration with Playwright
+
+Intorduction to Jira application
+Create Jira request(task or bug) in Postman
+Create Jira request using PW- API
+Breakout
+
+
+
+Jira is Project Management & Issue Tracking tool to organize work, track bugs,and manage projects 
+in a team to track their work.
+
+Project Management-helps teams plan and organize work
+Issue Tracking tool-helps track tasks, bugs, and problems
+
+
+Jira integration
+----------------
+Documentation
+Endpoint
+Auth
+http methods
+body
+response body/status codes
+
+
+Request fixture and Axios:
+--------------------------
+
+1) We use Playwright request fixture for UI tied API's
+2) We use axios http library for independent API like Jira
+
+Playwright->Request fixture can not interact with third party libraries,so need to install axios
+axios: common api for all api calls
+
+installation command:
+npm install axios
+
+Jira credentials
+----------------
+gauthami.vn@testleaf.com
+Qeagle@2026
+
+token:
+ATATT3xFfGF0m9BBNJ8LJVTctm4dvFGsiFqAuq9qp_iXyLg3NRfG5nGRnDG7qqvkzC33yZ2k1jID4QJsyml7DjMR9npSy-KWorgxMfAc6bUsdO3QRqMrOuk7d9imIASarF1ejGNodLoAZSGXWE5HLNKC1ZJCwqrricIPKVcmU1RxY2WuB7oSHKc=FA7FFFBD
+
+
+Steps to create Jira Account
+----------------------------
+
+1) goto website https://www.atlassian.com/software/jira
+2) click on 'Get it free' under Jira s/w
+3) you will be directed to Atlassian's sign-up page
+4) click on 'Sign up'
+5) Check your email inbox for a verification link from Atlassian and click on it
+6) Set a strong password for your Atlassian account.
+7) Once logged in, you will land on the JIRA dashboard where you can start creating projects.
+
+Steps to Create a Jira Project
+--------------------------------
+Go to Projects and select Create project.
+Select the Scrum template.
+Choose Use template.
+Select Team-managed project.
+Enter the project name.
+Example: PW_Jira25
+Click Next.
+In “Bring your team along”, click Skip.
+The project will be created successfully.
+Verify that the newly created project is listed under the Projects tab.
+
+
+steps to generate API Token
+---------------------------
+
+Jira API Token Creation – Steps
+Click on your Profile.
+Select Account Settings.
+Click the Security tab.
+Scroll down and select Create and manage API tokens.
+Verify your email address by entering the OTP.
+Click Create API token.
+Enter the token name:
+Jira-API-Token
+Set the token expiry date.
+Example: 12/27/25.
+Click Create.
+Copy the generated API token immediately and store it securely for future use.
+Click Done.
+
+
+How to take endpoint
+--------------------
+
+Generic endpoint: https://<your-domain>.atlassian.net/rest/api/2/issue
+
+
+1) From your Jira account url https://testleaf-team-ppdcho09.atlassian.net/jira/software/projects/PJN/list
+slice till "https://testleaf-team-ppdcho09.atlassian.net"
+
+2) From your swagger documentation, 
+https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issues/#api-rest-api-3-issue-post
+
+select Post(create issue)-POST  /rest/api/3/issue
+
+
+So Endpoint: "https://testleaf-team-ppdcho09.atlassian.net/rest/api/3/issue"   
+             "https://testleaf-team-ppdcho09.atlassian.net/rest/api/2/issue"  (use older version for stability)
+
+
+Classroom 1:
+-----------
+
+1) endpoint for postman:
+https://gauthamshara.atlassian.net/rest/api/2/issue
+
+2) Authorization:
+username: gauthamshara@gmail.com
+Password:ATATT3xFfGF0q_aOPVmyKjPhWRdfO3-8dG_9F6tsrkNLIs1HXB29wd8QDry1yQdTb2SQMJbcUOG1TLJ4G_W_OpzgkhM8bPzD05rtBiXYxRP6lVWo1wKG7b6k7naJW0y8JhYTvGYyrPlglwSa7doCZ9rWC-ZtUss6E0NdEYQEtGVLVgrI3UTiF50=F323D773
+
+3) Header
+Content-Type: application/json
+
+4) body( json)
+
+{
+"fields": {
+    "project": {
+        "key": "PM"
+    },
+    "summary": "Bug created through Postman",
+    "description": "Page is not loaded",
+     "issuetype": {
+      "name": "Bug"
+    }
+
+
+}
+}
+
+5) Perform all crud operations using postman
+create, get, put and delete
+
+Home Assignment:
+===============
+
+create get, put and delete request for Jira application using Playwright API.
